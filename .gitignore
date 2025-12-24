@@ -1,0 +1,23 @@
+## Visual Studio ##
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+## ASP.NET Core ##
+appsettings.Development.json
+appsettings.Local.json
+
+## Node / React / Next.js ##
+node_modules/
+.next/
+dist/
+
+## OS ##
+.DS_Store
+Thumbs.db
+
+appsettings.json
