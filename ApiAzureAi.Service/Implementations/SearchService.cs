@@ -7,7 +7,10 @@ using Microsoft.Extensions.Options;
 
 namespace ApiAzureAi.Service.Implementations
 {
-    public class SearchService(IRestService restService, IOptions<Endpoints> optionsEndpoint) : ISearchService
+    public class SearchService(IRestService restService, 
+        IOptions<Endpoints> optionsEndpoint,
+        IOptions<Azure> optionsAzure
+        ) : ISearchService
     {
         private readonly Endpoints endpoints = optionsEndpoint.Value;
         public async Task<SearchResponse> GetSearch(SearchRequest filter)
@@ -30,7 +33,7 @@ namespace ApiAzureAi.Service.Implementations
 
             var headers = new Dictionary<string, string>
             {
-                { "api-key", "" }
+                { "api-key", optionsAzure.Value.ApiKey }
             };
             return await restService.PostAsync<SearchRequest, SearchResponse>(endpoint, searchRequest, headers) ?? new();
         }

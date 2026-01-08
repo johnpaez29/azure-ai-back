@@ -35,6 +35,9 @@ builder.Services.Configure<Endpoints>(
     builder.Configuration.GetSection("Endpoints")
     );
 
+builder.Services.Configure<Azure>(
+    builder.Configuration.GetSection("Azure"));
+
 builder.Services.AddScoped<ISearchService, SearchService>();
 
 builder.Services.AddHttpClient<IRestService, RestService>((sp, client) =>

@@ -16,7 +16,7 @@ namespace ApiAzureAi.Model.Requests
 
         public bool? Count { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? IndexName { get; set; } = "azureblob-index";
+        public string? IndexName { get; set; } = "azureblob-image-index";
 
         public string? QueryType { get; set; }
         public string? SemanticConfiguration { get; set; }
